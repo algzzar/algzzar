@@ -1,0 +1,17 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+      - name: INSTALL PACKAGES
+        debug: msg="You are installing .. git-core, vim, nano, whois"
+      - user: name=root group=root
+        with_items:
+              - git-core
+              - vim
+              - nano
+              - whois
+      - name: add user
+        user: name=student-1 password={{"$5$61LQ/YNV7oOv0$O6zctwzHauMQ/xZF1wu072WMPnlaULCF/IHNrIjo.J6"}} groups="sudo"
+        sudo: true 
+
+

@@ -1,0 +1,4 @@
+---
+# defaults file for nginx
+ php_ip: 127.0.0.1
+ php_port: 9000
