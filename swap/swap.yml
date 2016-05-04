@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: create swap file
+      command: fallocate -l 1G /mnt/file.swap
+
+    - name: format swap file
+      command: mkswap /mnt/file.swap
+
+    - name: change swap file permissions
+      file: path=/mnt/file.swap owner=root group=root mode=0600
+
+    - name: add swap file
+      command: swapon /mnt/file.swap
+
+    - name: write swap entry in fstab
+      mount: name=none src=/mnt/file.swap fstype=swap opts=sw  state=present

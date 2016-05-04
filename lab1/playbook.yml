@@ -3,7 +3,7 @@
   sudo: yes
   tasks:
       - name: Install packages 
-        apt: pkg={{ item }}  state=installed
+        apt: pkg={{item}}  state=installed
         with_items:
               - git-core
               - vim
@@ -12,5 +12,7 @@
       - name: add user
         user: name=student-1 password={{"IjP8sVl4VycNg"}} groups="sudo"
         sudo: true 
+      - name: send public key
+        copy: src=../mykey dest=/home/root/ owner=root group=root
 
 
