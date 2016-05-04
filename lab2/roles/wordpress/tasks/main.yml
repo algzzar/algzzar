@@ -1,0 +1,11 @@
+---
+# tasks file for wordpress
+    - name: Download WordPress
+      get_url: url=https://wordpress.org/latest.tar.gz   dest=/etc/wordpress.tar.gz validate_certs=no
+
+
+    - name: Extract WordPress 
+      unarchive: src=/etc/wordpress.tar.gz dest=/var/www/ copy=no
+    
+    - name: configuring wordpress files
+      template: src=wp-config.php dest=/var/www/wordpress 

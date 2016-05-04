@@ -1,0 +1,15 @@
+---
+# tasks file for php
+- name : install required Package
+  apt  : name={{ item }} force=yes state=present
+  with_items :
+        - php5-fpm
+        - php5-gd
+        - php5-curl
+        - php5-mysql
+        - php5
+        - python-mysqldb
+- name : copy template of configuration
+  template : src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
+  notify : restart fpm
+     

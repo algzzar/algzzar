@@ -1,0 +1,8 @@
+[client]
+user=root
+password={{MySQL_root_pass}}
+
+[mysql]
+user=root
+password={{MySQL_root_pass}}
+

@@ -1,6 +1,0 @@
----
-  - name: Install nginx
-    hosts: all
-    sudo: yes
-    roles:
-        - nginx
